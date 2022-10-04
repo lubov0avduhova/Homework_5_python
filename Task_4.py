@@ -1,21 +1,27 @@
 # Реализуйте RLE алгоритм: реализуйте модуль сжатия и восстановления данных.
+import ast
 
-# AAAAAAAABCCCC
 # 8×A, B, 4×c
 
 # Модуль сжатия
+
 # def compression(x):
 #     compression_result = {}
 #     for c in x:
 #        compression_result[c] = x.count(c)
 #     return compression_result
 
-# print(compression("AAAAAAAABCCCC"))
+
+# first_com = open('Task_4_start.txt', 'r')
+# first_com_str = first_com.read()
+
+# print(compression(first_com_str))
+# first_com.close()
 
 
 
+# # Модуль восстановления
 
-# Модуль восстановления
 def recovery(x):
     k = 0
     result = []
@@ -31,7 +37,17 @@ def recovery(x):
         i+=1
     return result
 
-info = {'A': 8, 'B': 1, 'C': 4}
-print(recovery(info))
+
+
+def new_dict(second_com_str):
+    result = ast.literal_eval(second_com_str)
+    return result
+
+
+second_com = open('Task_4_end.txt', 'r')
+second_com_str = second_com.read()
+dict = new_dict(second_com_str)
+
+print(recovery(dict))
 
 
